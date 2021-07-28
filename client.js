@@ -7,10 +7,11 @@ const connect = function (data) {
     port: 50542, // PORT number here,
   });
   conn.on("connect", () => {
-    console.log("connected");
+    console.log("you are now connected!");
+    conn.write("Name: ADS ");
   });
   conn.on("data", (data) => {
-    console.log("new message", data);
+    console.log("new message: ", data);
   });
 
   // interpret incoming data as text
@@ -19,3 +20,5 @@ const connect = function (data) {
   return conn;
 };
 module.exports = { connect };
+console.log("Connecting ...");
+connect();
